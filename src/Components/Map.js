@@ -2,12 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Map, Marker, TileLayer} from 'react-leaflet';
-import { Icon } from "leaflet";
 
 const MapContainer = styled.div`
     height: 600px;
-    width: 850px;
-    margin: 15px auto;
+    width: 80%;
+    margin: 15px auto;  
 `
 
 const MapCities = (props) => {

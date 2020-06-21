@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
+import * as theme from './Config/style';
+
 
 import MapCities from './Components/Map';
 import Pagination from './Components/Pagination';
 
 const Wrapper = styled.div`
   margin: 10px auto;
-  width: 96%;
+  width: 92%;
   display: flex;
   border: 2px solid black;
 `
@@ -19,18 +21,23 @@ const ListUl = styled.ul`
 `
 
 const List = styled.li`
-    list-style: none;
-    margin: 8px auto;
-    text-align: center;
+  list-style: none;
+  margin: 8px auto;
+  text-align: center;
 `
 
 const ButtonCities = styled.button`
-    height: 60px;
-    width: 200px;
+  height: 60px;
+  width: 200px;
 `
-const RightElements = styled.div`
+const SpanCity = styled.span`
+  font-weight: ${props => props.theme.bold}
+`
 
+const SpanState = styled.span`
+  font-style: ${props => props.theme.italic}
 `
+const RightElements = styled.div``
 
 const App = () => {
 
@@ -74,11 +81,13 @@ const App = () => {
                 () => {
                   setLatitude(result.latitude);
                   setLongitude(result.longitude);
-                  setZoom('6');
+                  setZoom('8');
                 }
               }>
-                <span>{result.city}</span><br />
-                <span>{result.state}</span>
+                <ThemeProvider theme={theme}>
+                  <SpanCity>{result.city}</SpanCity><br />
+                  <SpanState>{result.state}</SpanState>
+                </ThemeProvider>
               </ButtonCities>
             </List>
           ))
