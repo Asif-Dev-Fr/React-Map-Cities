@@ -81,7 +81,7 @@ const App = () => {
                 () => {
                   setLatitude(result.latitude);
                   setLongitude(result.longitude);
-                  setZoom('10');
+                  setZoom(10);
                 }
               }>
                 <ThemeProvider theme={theme}>

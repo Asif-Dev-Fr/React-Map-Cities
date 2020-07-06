@@ -36,9 +36,7 @@ const Pagination = (props) => {
                 <PaginationUl>
                     {pageNumbers.map(value => (
                         <PaginationList key={value}>
-                            <PaginationButton
-                                onClick={() => props.paginate(value)} href="#"
-                            >
+                            <PaginationButton onClick={() => props.paginate(value)}>
                                 {value}
                             </PaginationButton>
                         </PaginationList>
