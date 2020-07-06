@@ -39,6 +39,8 @@ const SpanState = styled.span`
 `
 const RightElements = styled.div``
 
+const BreakLine = styled.br``;
+
 const App = () => {
 
   const [results, setResults] = useState([]);
@@ -85,7 +87,7 @@ const App = () => {
                 }
               }>
                 <ThemeProvider theme={theme}>
-                  <SpanCity>{result.city}</SpanCity><br />
+                  <SpanCity>{result.city}</SpanCity><BreakLine />
                   <SpanState>{result.state}</SpanState>
                 </ThemeProvider>
               </ButtonCities>
