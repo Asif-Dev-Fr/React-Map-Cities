@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 import * as theme from './Config/style';
 
@@ -51,16 +51,19 @@ const App = () => {
   const [citiesPerPage, setCitiesPerPage] = useState(10);
 
   // Retrieve cities : 
-  const data = new XMLHttpRequest();
-  data.open('GET', '/cities.json');
-  data.responseType = "json";
-  data.send();
+  useEffect(() => {
+    const data = new XMLHttpRequest();
+    data.open('GET', '/cities.json');
+    data.responseType = "json";
+    data.send();
 
-  data.onload = () => {
-    const responseObj = data.response;
-    // console.log(responseObj); 
-    setResults(responseObj);
-  };
+    data.onload = () => {
+      const responseObj = data.response;
+      setResults(responseObj);
+    }
+  }, []);
+
+
 
   // Pagination : 
   const indexOfLastCity = currentPage * citiesPerPage;
