@@ -1,4 +1,4 @@
-# Frontend Test
+US City Map App
 
 ## Requirements
 
